@@ -1,0 +1,18 @@
+{
+  "name": "mongodb-migration",
+  "version": "1.0.0",
+  "description": "A migration and seeding package for mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anshul Soni",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anshulsoni6/mongodb-migration.git"
+  }
+}

@@ -1,0 +1,5 @@
+{
+    "migrationCollectionName": "migrations",
+    "migration": "migration",
+    "messages": {}
+}
