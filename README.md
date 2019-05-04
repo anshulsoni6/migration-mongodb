@@ -19,7 +19,7 @@ var app = express()
 require('mongodb')
 
 // mongodb migration starts
-var mongodbMigrations = require('mongodb-migrations');
+var mongodbMigrations = require('migration-mongodb');
 
 var connectionUrl = 'mongodb://localhost:27017'; // mongodb connection url
 var dbName = 'myproject'; // db name
