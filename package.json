@@ -1,6 +1,6 @@
 {
   "name": "migration-mongodb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A migration and seeding package for mongodb",
   "main": "index.js",
   "scripts": {
