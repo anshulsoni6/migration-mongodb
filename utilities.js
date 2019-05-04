@@ -9,13 +9,18 @@ let exportUtilities = {
                 // Use connect method to connect to the server
                 MongoClient.connect(connectionUrl, async function (err, client) {
                     if (err) {
-                        console.log('Error: Could not connect to mongodb server  : ', err);
+                        console.log('\x1b[31m Error: Could not connect to mongodb server  : ', err);
+                        console.log('\x1b[37m');
                     }
-                    console.log('Connected successfully to mongoDB server ');
+                    console.log('\x1b[32m Connected successfully to mongoDB server ');
+                    console.log('\x1b[37m');
                     let db = client.db(dbName);
 
                     // client.close();
-                    resolve(db);
+                    resolve({
+                        db: db,
+                        client: client
+                    });
                 });
             } catch (error) {
                 reject(error);
@@ -57,7 +62,7 @@ let exportUtilities = {
         }
         return migrationFiles;
     },
-    findNewMigrationFiles: async (db, allFiles) => {
+    findNewMigrationFiles: async (client, db, allFiles) => {
         let newFiles = [];
         if (allFiles && allFiles.length) {
             let allExecutedMigrations = await db.collection(constants.migrationCollectionName).find({}, {
@@ -77,11 +82,11 @@ let exportUtilities = {
         }
         newFiles = allFiles;
         if (!newFiles.length) {
-            db.close();
+            client.close();
         }
         return newFiles;
     },
-    runMigrations: async (db, newFiles, migrationFolder) => {
+    runMigrations: async (client, db, newFiles, migrationFolder) => {
         try {
             var migrations = [];
             var migrationName = '';
@@ -96,14 +101,17 @@ let exportUtilities = {
                         createdAt: new Date()
                     });
                     console.log('\x1b[32m', `========================== migration ${migrationName} executed successfully ==========================`);
+                    console.log('\x1b[37m');
                 }
                 await db.collection(constants.migrationCollectionName).insertMany(migrations);
             }
-            db.close();
+            client.close();
         } catch (error) {
+            console.log(error)
             await db.collection(constants.migrationCollectionName).insertMany(migrations);
-            db.close();
+            client.close();
             console.log('\x1b[31m', `========================== migration ${migrationName} failed!!! ==========================`);
+            console.log('\x1b[37m');
         }
     }
 };
