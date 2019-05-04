@@ -1,5 +1,5 @@
 {
-  "name": "mongodb-migration",
+  "name": "migration-mongodb",
   "version": "1.0.0",
   "description": "A migration and seeding package for mongodb",
   "main": "index.js",
@@ -13,6 +13,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anshulsoni6/mongodb-migration.git"
+    "url": "https://github.com/anshulsoni6/migration-mongodb.git"
   }
 }

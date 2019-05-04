@@ -1,9 +1,9 @@
 # Introduction
-Mongo DB Migration is a package to enable migration and seeding with Mongo DB. Its easy to use.
+migration-mongodb is a package to enable migration and seeding with Mongo DB. Its easy to use.
 
 # Installation instructions
 ```
-$ npm install mongodb-migrations --save
+$ npm install migration-mongodb --save
 ```
 
 # How to use this package
