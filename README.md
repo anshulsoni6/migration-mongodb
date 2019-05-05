@@ -13,7 +13,7 @@ example with express.js :-
 ```
 
 #### app.js
-```
+```javascript
 var express = require('express')
 var app = express()
 require('mongodb')
@@ -38,7 +38,7 @@ When app.js executes then all migrations in __dirname + '/migrations' directory 
 
 ### Migration file example
 create-songs-collection-migration.js
-```
+```javascript
 var songsData = require('./songs.json');
 module.exports = async function(db) {
     await db.createCollection('songs');
